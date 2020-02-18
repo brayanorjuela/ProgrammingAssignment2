@@ -1,14 +1,13 @@
 
 # My functions create a special type of matrix that through the appropriate use 
-# of lexical scoping can save valuable computational time by not calculating unnecessarily 
-# the inverse of a matrix that was already calculated. 
+# of lexical scoping and the creation and application of 4 functions can save valuable 
+# computational time by not calculating again unnecessarily the inverse of a matrix that 
+# was already calculated.
 
 
-# This function receives an argument to be converted into a matrix. This matrix is then going 
-# to be assigned to a variable inside a subsequent function and through the operator <<- 
-# is identifiable in the environment of the makeCacheMatrix function. After this, this function
-# creates a number of subsequent functions that allow the call of the given matrix and the input 
-# and call of the inverse of a matrix. 
+# This function allows one to set a matrix whose inverse can be calculated and called 
+# in an efficient way. More specifically, it creates four functions that are used to
+# set and call a matrix, as well as to set and call the inverse of this matrix. 
 
 makeCacheMatrix <- function(x = matrix()) {
   
@@ -28,8 +27,9 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 # This function simply calls one of the functions defined in the special matrix 
-# to get the inverse of a matrix. Then, it will ouput this value, if it exists. Otherwise,
-# it will calculate the inverse of the matrix
+# to get the inverse of the matrix. Then, it will ouput this value, if it exists. Otherwise,
+# it will calculate the inverse of the matrix with the solve function after it uses 
+# another function of the special matrix (x$getmatrix). 
 
 cacheSolve <- function(x, ...) {
         
